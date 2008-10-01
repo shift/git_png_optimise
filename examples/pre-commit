@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# A precommit hook which compresses any pngs before committing. Huzzah!
+#
+
+if git-rev-parse --verify HEAD 2>/dev/null
+then
+    for file in `git-diff-index -M --cached HEAD -- | cut -f2 | grep "\.png"`
+    do
+        [ -x ./vendor/plugins/git_png_optimise/bin/optipng ] && ./vendor/plugins/git_png_optimise/bin/optipng -o7 -q $file
+        [ -x ./vendor/plugins/git_png_optimise/bin/pngout ] && ./vendor/plugins/git_png_optimise/bin/pngout $file -y
+        git-add $file
+    done
+fi
+exit 0

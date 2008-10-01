@@ -1,0 +1,25 @@
+GitPngOptimise
+==============
+
+This plugin is for optimising PNG's upon commit into a git repository, it backs up your current pre-commit hook if there is one and replaces it, your git pre-commit hook located in .git/hooks/pre-commit.
+
+The plugin supports OptiPNG (packaged with the plugin, for OS X) and PNGOUT available from http://advsys.net/ken/utils.htm
+
+Installation
+============
+
+open .git/hooks/pre-commit and change OptiPNG flags as required.
+
+Howto install PNGOUT
+====================
+
+Drop the binary file into the plugins bin directory named 'pngout' and 'chmod +x pngout'
+
+
+Usage
+=====
+
+git add public/images/header.png
+git commit -m "Look ma no hands."
+
+Copyright (c) 2008 Vincent Palmer & Piers Cawley, released under the MIT license
